@@ -2,15 +2,11 @@ const express = require('express');
 const app = express();
 const router = express.Router();
 
-const author=require('./controllers/author');
-const book=require('./controllers/book');
-const category=require('./controllers/category');
-const publisher=require('./controllers/publisher');
+const author=require('./controllers/authorController');
+const book=require('./controllers/bookController');
+const category=require('./controllers/categoryController');
+const publisher=require('./controllers/publisherController');
 
-app.use('/author',author);
-app.use('/book',book);
-app.use('/category',category);
-app.use('/publisher',publisher);
 
 
 
