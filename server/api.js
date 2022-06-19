@@ -2,10 +2,10 @@ const express = require('express');
 const app = express();
 const router = express.Router();
 
-const author=require('./controllers/authorController');
-const book=require('./controllers/bookController');
-const category=require('./controllers/categoryController');
-const publisher=require('./controllers/publisherController');
+const authorController=require('./controllers/authorController');
+const bookController=require('./controllers/bookController');
+const categoryController=require('./controllers/categoryController');
+const publisherController=require('./controllers/publisherController');
 
 
 
