@@ -1,20 +1,20 @@
 const db = require("../../models/");
 const { Book } = require("../../models/");
+const {Request, Response} = require('express');
 
 
 const newBook = async (req, res) => {
   const { bookName, author, category, publisher } = req.body;
   
   try {
-    const book = await Book.create({
+    const book = new Book({
         bookName,
         author,
         category,
         publisher
     });
-    res.json(book);
-    const res = await book.save();
-    console.log(book);
+    await book.save();
+    res.send(book);
   } catch (error) {
     //console.log(book);
    console.log("error", error);
