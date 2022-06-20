@@ -1,11 +1,7 @@
-const db = require("../../models/");
 const { Book } = require("../../models/");
-const {Request, Response} = require('express');
-
 
 const newBook = async (req, res) => {
   const { bookName, author, category, publisher } = req.body;
-  
   try {
     const book = new Book({
         bookName,
@@ -13,20 +9,26 @@ const newBook = async (req, res) => {
         category,
         publisher
     });
-    resp=await book.save();
-    res.send(resp);
+    await book.save();
+    res.send(book);
   } catch (error) {
-    //console.log(book);
    console.log("error", error);
   }
 };
 
 const getBook = (req, res) => {
-  
+  res.json({ message: "GET book" });
 };
 
-const getAllBooks = (req, res) => {
-  res.json({ message: "GET all books" });
+const getAllBooks = async (req, res) => {
+  try {
+    const books = await Book.findAll();
+    console.log(books);
+    res.send(books);
+  }
+  catch (error) {
+    console.log("error", error);
+  }
 };
 
 const updateBook = (req, res) => {
