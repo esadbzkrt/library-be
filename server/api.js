@@ -34,7 +34,4 @@ router.post('/publisher',publisherController.newPublisher);
 router.put('/publisher/:id',publisherController.updatePublisher);
 router.delete('/publisher/:id',publisherController.deletePublisher);
 
-
-
-
 module.exports = router;

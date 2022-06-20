@@ -41,4 +41,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
   return Book;
+
 };
+
