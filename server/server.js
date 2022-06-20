@@ -3,7 +3,7 @@ const app = express();
 const router = express.Router();
 const bodyParser = require("body-parser");
 const api = require("./api");
-const { sequelize } = require("../models");
+const db = require("../models");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -23,14 +23,14 @@ app.get("/", (req, res) => {
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
 
-  sequelize.authenticate().then(() => {
+  db.sequelize.authenticate().then(() => {
     console.log("Connected to the database");
   }
   ).catch(err => {
     console.error("Error: " + err);
   }),
   
-  sequelize.sync().then(() => {
+  db.sequelize.sync().then(() => {
     console.log("Database synced");
   }
   ).catch(err => {
