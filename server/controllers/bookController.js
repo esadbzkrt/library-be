@@ -13,8 +13,8 @@ const newBook = async (req, res) => {
         category,
         publisher
     });
-    await book.save();
-    res.send(book);
+    resp=await book.save();
+    res.send(resp);
   } catch (error) {
     //console.log(book);
    console.log("error", error);
