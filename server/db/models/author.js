@@ -1,15 +1,15 @@
-const Sequelize = require("sequelize");
-const db = "../../db/index";
-
-const Author = db.define("author", {
-  author_id: {
-    type: Sequelize.INTEGER,
+const { DataTypes,sequelize } = require("sequelize");
+const db = require("./db");
+const author= sequelize.define("author", {
+  authorID: {
+    type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  author_name: {
-    type: Sequelize.STRING,
+  authorName: {
+    type: DataTypes.STRING,
     allowNull: false,
-  },
-});
-module.exports = Author;
+  }
+})
+
+  module.exports = author; 
