@@ -1,6 +1,12 @@
-const { Sequelize } = require('sequelize');
+const { Sequelize } = require("sequelize");
+const db = {};
 
-module.exports=new Sequelize('library','postgres','esad',{
-    host:'localhost',
-    dialect:'postgres'
-})
+const sequelize = new Sequelize("library", "postgres", "esad", {
+  host: "localhost",
+  dialect: "postgres",
+});
+
+db.Sequelize = Sequelize;
+db.sequelize = sequelize;
+
+module.exports = db;
