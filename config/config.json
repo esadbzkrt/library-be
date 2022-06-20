@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "esad",
+    "database": "library",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "esad",
+    "database": "library",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "esad",
+    "database": "library",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}
