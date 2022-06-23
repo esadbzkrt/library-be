@@ -22,9 +22,19 @@ const getBook = (req, res) => {
 
 const getAllBooks = async (req, res) => {
   try {
-    const books = await Book.findAll();
-    console.log(books);
-    res.send(books);
+    const PAGE_SIZE = 5;
+    const page = parseInt(req.query.page) || 1;
+    const totalPages = await Book.count();
+    const books = await Book.findAndCountAll({
+      limit: PAGE_SIZE,
+      offset: PAGE_SIZE * (page - 1)
+    });
+   // console.log(books);
+    res.send({
+      totalPageNumber:Math.ceil(totalPages / PAGE_SIZE),
+      books,
+      page
+    });
   }
   catch (error) {
     console.log("error", error);
